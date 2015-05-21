@@ -195,7 +195,7 @@ SNAKE.Snake = SNAKE.Snake || (function() {
             if (isDead) {return;}
             
             var snakeLength = me.snakeLength;
-            var lastMove = moveQueue[0] || currentDirection;
+            var lastMove = moveQueue[100] || currentDirection;
 
             switch (keyNum) {
                 case 37:
@@ -276,9 +276,9 @@ SNAKE.Snake = SNAKE.Snake || (function() {
         */
         me.eatFood = function() {
             if (blockPool.length <= growthIncr) {
-                createBlocks(growthIncr*2);
+                createBlocks(growthIncr*15);
             }
-            var blocks = blockPool.splice(0, growthIncr);
+            var blocks = blockPool.splice(100, growthIncr);
             
             var ii = blocks.length,
                 index,
